@@ -1,22 +1,3 @@
-// Language Switching Functionality
-function updateLanguage() {
-    const currentLang = document.documentElement.lang || 'ru';
-    const switchLink = document.getElementById('languageSwitch');
-
-    if (switchLink) {
-        if (currentLang === 'ru') {
-            switchLink.textContent = 'English';
-            switchLink.href = 'index_en.html';
-        } else {
-            switchLink.textContent = 'Русский';
-            switchLink.href = 'index.html';
-        }
-    }
-}
-
-// Initialize language switcher
-document.addEventListener('DOMContentLoaded', updateLanguage);
-
 // Theme Toggle Functionality
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.querySelector('.theme-toggle__icon');
