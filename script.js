@@ -1,3 +1,22 @@
+// Language Switching Functionality
+function updateLanguage() {
+    const currentLang = document.documentElement.lang || 'ru';
+    const switchLink = document.getElementById('languageSwitch');
+
+    if (switchLink) {
+        if (currentLang === 'ru') {
+            switchLink.textContent = 'English';
+            switchLink.href = 'index_en.html';
+        } else {
+            switchLink.textContent = 'Русский';
+            switchLink.href = 'index.html';
+        }
+    }
+}
+
+// Initialize language switcher
+document.addEventListener('DOMContentLoaded', updateLanguage);
+
 // Theme Toggle Functionality
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.querySelector('.theme-toggle__icon');
@@ -38,9 +57,9 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
 });
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav__list a').forEach(link => {
-    link.addEventListener('click', () => {
+// Close mobile menu when clicking on a link or theme toggle
+document.querySelectorAll('.nav__list a, .nav__cta, .theme-toggle').forEach(element => {
+    element.addEventListener('click', () => {
         navList.classList.remove('active');
         hamburger.classList.remove('active');
     });
