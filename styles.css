@@ -411,6 +411,13 @@ body {
     font-size: 18px;
 }
 
+.hero__logo {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 200px;
+    height: auto;
+}
+
 /* About Section */
 .about {
     padding: var(--section-padding);
