@@ -1,3 +1,34 @@
+// Theme Toggle Functionality
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.querySelector('.theme-toggle__icon');
+
+// Check for saved theme preference or respect system preference
+const savedTheme = localStorage.getItem('theme');
+const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+// Apply theme based on saved preference or system preference
+if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+} else if (systemPrefersDark) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeIcon.textContent = '☀️';
+} else {
+    themeIcon.textContent = '🌙';
+}
+
+// Toggle theme when button is clicked
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+
+    // Update icon
+    themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+});
+
 // Mobile Navigation Toggle
 const hamburger = document.getElementById('hamburger');
 const navList = document.querySelector('.nav__list');
